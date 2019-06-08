@@ -18,7 +18,7 @@ aws configure --profile profile_name
 
 # for EC2 automation tasks such as creating, starting and stopping instances, listing instances, volumes and snapshots, and creating snapshots
 
-pipenv run python ec2-scripts/ec2list.py <command> <subcommand> <--project=PROJECT>
+pipenv run python ec2-scripts/ec2-script.py <command> <subcommand> <--project=PROJECT>
 command is instances,volumes and snapshots
 #For instances command, below are subcommands:
 instances --help
@@ -77,4 +77,4 @@ Modules used:
 
 #distribution.py - Defines class to manage Cloudfront distribution - methods are find mathcing distribution and create a cloudfront distribution.
 
-#util.py - Defines endpoints for various AWS regions. Region name, Host and zone for the region of S3 bucket. 
+#util.py - Defines endpoints for various AWS regions. Region name, Host and zone for the region of S3 bucket.
