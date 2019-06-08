@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-"""S3 various automation tasks and deploying website within AWS.
+"""S3-various automation tasks and deploying website within AWS.
 
  Create bucket in AWS
  Setup Bucket for static website hosting
