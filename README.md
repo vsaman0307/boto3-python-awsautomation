@@ -15,66 +15,64 @@ S3 service - Listing buckets, listing objects within a bucket, Configuring bucke
 aws configure --profile profile_name
 
 
-#Running ec2-script.py
+# Running ec2-script.py
 
 
---for EC2 automation tasks such as creating, starting and stopping instances, listing instances, volumes and snapshots, and creating snapshots
+#for EC2 automation tasks such as creating, starting and stopping instances, listing instances, volumes and snapshots, and creating snapshots. Command is instances, volumes or snapshot. sub-command is list, start or stop (depending on command)
+project is optional ( project is tag on ec2 instances)
 
 pipenv run python ec2-scripts/ec2-script.py <command> <subcommand> <--project=PROJECT>
+
 command is instances,volumes and snapshots
 
---For instances command, below are subcommands:
-instances --help
+#For instances command, below are subcommands:
+python ec2-script.py instances --help
 
---List EC2 instances filtered by Tag
-instances list --project(option - Ex: project=Dev)
+#List EC2 instances filtered by Tag
+python ec2-script.py instances list --project(option - Ex: project=Dev)
 
---Stop Instances filtered by tag
-instances list --project(option - Ex: project=Dev)
+#Stop Instances filtered by tag
+python ec2-script.py instances list --project(option - Ex: project=Dev)
 
---Start Instances filtered by tag
-instances start --project(option - Ex: project=Dev)
+#Start Instances filtered by tag
+python ec2-script.py instances start --project(option - Ex: project=Dev)
 
---Create snapshot for Instances by tags
-instances snapshot --project(option - Ex: project=prod)
+#Create snapshot for Instances by tags
+python ec2-script.py instances snapshot --project(option - Ex: project=prod)
 
---For volumes command, below are subcommands:
-volumes list
+#For volumes command, below are subcommands:
+python ec2-script.py volumes list
 
---For snapshot command, below are subcommands:
-snapshot --project --all (project and all are options, project used to filter by tag and all is True of False to list all or latest snapshot)
-
-sub-command is list, start or stop (depending on command)
-project is optional ( project is tag on ec2 instances)
+#For snapshot command, below are subcommands:
+python ec2-script.py snapshot --project --all (project and all are options, project used to filter by tag and all is True of False to list all or latest snapshot)
 
 
 # Running s3-script.py
 
 
-for S3 to perform various S3 automation tasks
-
-Commands with profile sent as option
+#for S3 to perform various S3 automation tasks
+#Commands with profile sent as option
 python s3-script.py --help
 
---List all buckets
---profile=profilename list-buckets
+#List all buckets
+python s3-script.py --profile=profilename list-buckets
 
---List all objects in a bucket
---profile=profilename list-bucket-objects <name of bucket>
+#List all objects in a bucket
+python s3-script.py profile=profilename list-bucket-objects <name of bucket>
 
---Configure a bucket with policy and website hosting
---profile=profilename setup-bucket <name of bucket>
+#Configure a bucket with policy and website hosting
+python s3-script.py --profile=profilename setup-bucket <name of bucket>
 
---Sync directory of website files to a bucket
---profile=profilename sync <directory tree> <bucket>
+#Sync directory of website files to a bucket
+python s3-script.py --profile=profilename sync <directory tree> <bucket>
 
---Set up hosted zone and a-record for the bucket
---profile=profilename setup-domain <domain name>
+#Set up hosted zone and a-record for the bucket
+python s3-script.py --profile=profilename setup-domain <domain name>
 
---Set up cdn with SSL for website hosting
---profile=profilename setup-cdn <domain> <bucket>
+#Set up cdn with SSL for website hosting
+python s3-script.py --profile=profilename setup-cdn <domain> <bucket>
 
-Modules used:
+#Modules used:
 --bucket.py - Defines a class BucketManager to perform various tasks for bucket-methods are get region for bucket, get bucket url, get buckets, get all objects for bucket, set bucket policy, create bucket, configure bucket for website hosting, syncing files to a buckets
 
 --domain.py - Defines a class DomainManager to manage Route53 DomainName - methods are find hosted zone, create hosted zone, create s3 domain record in Route53, create cloudfront domain record in Route53
