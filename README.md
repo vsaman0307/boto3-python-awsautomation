@@ -26,25 +26,25 @@ pipenv run python ec2-scripts/ec2-script.py <command> <subcommand> <--project=PR
 command is instances,volumes and snapshots
 
 #For instances command, below are subcommands:
-python ec2-script.py instances --help
+--python ec2-script.py instances --help
 
 #List EC2 instances filtered by Tag
-python ec2-script.py instances list --project(option - Ex: project=Dev)
+--python ec2-script.py instances list --project(option - Ex: project=Dev)
 
 #Stop Instances filtered by tag
-python ec2-script.py instances list --project(option - Ex: project=Dev)
+--python ec2-script.py instances list --project(option - Ex: project=Dev)
 
 #Start Instances filtered by tag
-python ec2-script.py instances start --project(option - Ex: project=Dev)
+--python ec2-script.py instances start --project(option - Ex: project=Dev)
 
 #Create snapshot for Instances by tags
-python ec2-script.py instances snapshot --project(option - Ex: project=prod)
+--python ec2-script.py instances snapshot --project(option - Ex: project=prod)
 
 #For volumes command, below are subcommands:
-python ec2-script.py volumes list
+--python ec2-script.py volumes list
 
 #For snapshot command, below are subcommands:
-python ec2-script.py snapshot --project --all (project and all are options, project used to filter by tag and all is True of False to list all or latest snapshot)
+--python ec2-script.py snapshot --project --all (project and all are options, project used to filter by tag and all is True of False to list all or latest snapshot)
 
 
 # Running s3-script.py
@@ -52,25 +52,25 @@ python ec2-script.py snapshot --project --all (project and all are options, proj
 
 #for S3 to perform various S3 automation tasks
 #Commands with profile sent as option
-python s3-script.py --help
+--python s3-script.py --help
 
 #List all buckets
-python s3-script.py --profile=profilename list-buckets
+--python s3-script.py --profile=profilename list-buckets
 
 #List all objects in a bucket
-python s3-script.py profile=profilename list-bucket-objects <name of bucket>
+--python s3-script.py profile=profilename list-bucket-objects <name of bucket>
 
 #Configure a bucket with policy and website hosting
-python s3-script.py --profile=profilename setup-bucket <name of bucket>
+--python s3-script.py --profile=profilename setup-bucket <name of bucket>
 
 #Sync directory of website files to a bucket
-python s3-script.py --profile=profilename sync <directory tree> <bucket>
+--python s3-script.py --profile=profilename sync <directory tree> <bucket>
 
 #Set up hosted zone and a-record for the bucket
-python s3-script.py --profile=profilename setup-domain <domain name>
+--python s3-script.py --profile=profilename setup-domain <domain name>
 
 #Set up cdn with SSL for website hosting
-python s3-script.py --profile=profilename setup-cdn <domain> <bucket>
+--python s3-script.py --profile=profilename setup-cdn <domain> <bucket>
 
 #Modules used:
 --bucket.py - Defines a class BucketManager to perform various tasks for bucket-methods are get region for bucket, get bucket url, get buckets, get all objects for bucket, set bucket policy, create bucket, configure bucket for website hosting, syncing files to a buckets
